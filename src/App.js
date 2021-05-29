@@ -1,7 +1,10 @@
+//Importing pages
+import AboutUs from "./Pages/AbousUs";
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello from lost in editing</h1>
+      <AboutUs />
     </div>
   );
 }
