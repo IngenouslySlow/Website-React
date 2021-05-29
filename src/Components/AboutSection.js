@@ -22,8 +22,10 @@ const AboutSection = () => {
           professionals with amazing skills to help you achieve it
         </p>
         <button>Contact us</button>
+        <div className="image">
+          <img src={home1} alt="guy with a camera" />
+        </div>
       </div>
-      <img src={home1} alt="guy with a camera" />
     </div>
   );
 };
