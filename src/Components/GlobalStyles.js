@@ -34,6 +34,7 @@ color:white;
 }
 h4{
 font-weight:bold;
+font-size:1.2rem;
 }
 span{
 font-weight:bold;
@@ -43,7 +44,7 @@ a{
 font-size:1.1rem;
 }
 p{
-padding:3rem 0;
+padding:2rem 0;
 color:gray;
 font-size:1.2rem;
 line-height:150%
