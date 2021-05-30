@@ -10,15 +10,41 @@ import styled from "styled-components";
 //Router thing
 import { Link } from "react-router-dom";
 
+////Animations
+import { motion } from "framer-motion";
+import {
+  pageAnimation,
+  zoomAnim,
+  fadeAnim,
+  lineAnim,
+  slideAnim,
+  slideContainer,
+} from "../animation";
+
 const OurWork = () => {
   return (
-    <Work>
+    <Work
+      style={{ background: "#fff" }}
+      exit="exit"
+      initial="hidden"
+      animate="show"
+      variants={pageAnimation}
+    >
+      <motion.div variants={slideContainer}>
+        <Frame1 variants={slideAnim}></Frame1>
+        <Frame2 variants={slideAnim}></Frame2>
+        <Frame3 variants={slideAnim}></Frame3>
+        <Frame4 variants={slideAnim}></Frame4>
+      </motion.div>
+
       <Movie>
-        <h2>The Athlete</h2>
-        <div className="line"></div>
-        <Link to="/work/the-athlete">
-          <img src={Athlete} alt="Athlete" />
-        </Link>
+        <motion.h2 variants={fadeAnim}>The Athlete</motion.h2>
+        <motion.div variants={lineAnim} className="line"></motion.div>
+        <Hide>
+          <Link to="/work/the-athlete">
+            <motion.img variants={zoomAnim} src={Athlete} alt="Athlete" />
+          </Link>
+        </Hide>
       </Movie>
       <Movie>
         <h2>The Racer</h2>
@@ -39,7 +65,7 @@ const OurWork = () => {
 };
 
 //Styled thing
-const Work = styled.div`
+const Work = styled(motion.div)`
   min-height: 100vh;
   padding: 5rem 10rem;
   overflow: hidden;
@@ -47,11 +73,11 @@ const Work = styled.div`
     padding: 1rem 0;
   }
 `;
-const Movie = styled.div`
+const Movie = styled(motion.div)`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
-    background: #ccc;
+    background: #23d997;
     margin-bottom: 3rem;
   }
   img {
@@ -59,5 +85,26 @@ const Movie = styled.div`
     height: 70vh;
     object-fit: cover;
   }
+`;
+const Hide = styled.div`
+  overflow: hidden;
+`;
+const Frame1 = styled(motion.div)`
+  position: fixed;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fffebf;
+  z-index: 2;
+`;
+const Frame2 = styled(Frame1)`
+  background: #ff8efb;
+`;
+const Frame3 = styled(Frame1)`
+  background: #8ed2ff;
+`;
+const Frame4 = styled(Frame1)`
+  background: #8effa0;
 `;
 export default OurWork;

@@ -1,5 +1,6 @@
 //Styled components
 import styled from "styled-components";
+
 export const About = styled.div`
   min-height: 90vh;
   display: flex;
@@ -8,6 +9,7 @@ export const About = styled.div`
   padding: 5rem 10rem;
   color: white;
 `;
+
 export const Description = styled.div`
   flex: 1;
   padding-right: 5rem;

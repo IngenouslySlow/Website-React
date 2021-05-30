@@ -7,33 +7,16 @@ import { About, Hide, Description, Image } from "./Styles";
 
 //Framer motion thing
 import { motion } from "framer-motion";
+import { titleAnim, fadeAnim, zoomAnim } from "../animation";
+
+//The wave
+import Wave from "./Wave";
 
 const AboutSection = () => {
-  const titleAnim = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { duration: 3, ease: "easeOut" } },
-  };
-  const container = {
-    hidden: { x: 100 },
-    show: {
-      x: 0,
-      transition: {
-        duration: 0.75,
-        ease: "easeOut",
-        staggerChildren: 0.25,
-        when: "afterChild",
-      },
-    },
-  };
   return (
     <About>
       <Description>
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="title"
-        >
+        <motion.div>
           <Hide>
             <motion.h2 variants={titleAnim}>We work to make</motion.h2>
           </Hide>
@@ -46,15 +29,16 @@ const AboutSection = () => {
             <motion.h2 variants={titleAnim}>true.</motion.h2>
           </Hide>
         </motion.div>
-        <p>
+        <motion.p variants={fadeAnim}>
           Contact us for any photography and videography ideas you have. We have
           professionals with amazing skills to help you achieve it
-        </p>
-        <button>Contact us</button>
+        </motion.p>
+        <motion.button variants={fadeAnim}>Contact us</motion.button>
       </Description>
       <Image>
-        <img src={home1} alt="guy with a camera" />
+        <motion.img variants={zoomAnim} src={home1} alt="guy with a camera" />
       </Image>
+      <Wave />
     </About>
   );
 };
