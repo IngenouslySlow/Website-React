@@ -6,9 +6,15 @@ const GlobalStyles = createGlobalStyle`
     padding:0;
     box-sizing:border-box;
 }
+*{
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scrollbar-color: gray;
+}
 body{
     background:#1b1b1b;
     font-family:"Inter",sans-serif;
+    overflow-x:hidden;
 }
 button{
     font-weight:bold;

@@ -21,7 +21,14 @@ import {
   slideContainer,
 } from "../animation";
 
+//Importing useScroll
+import { useScroll } from "../Components/useScroll";
+
+//Importing scroll top
+import ScrollTop from "../Components/ScrollTop";
 const OurWork = () => {
+  const [element1, controls1] = useScroll();
+  const [element2, controls2] = useScroll();
   return (
     <Work
       style={{ background: "#fff" }}
@@ -46,20 +53,31 @@ const OurWork = () => {
           </Link>
         </Hide>
       </Movie>
-      <Movie>
+      <Movie
+        ref={element1}
+        animate={controls1}
+        variants={fadeAnim}
+        initial="hidden"
+      >
         <h2>The Racer</h2>
         <div className="line"></div>
         <Link to="/work/the-racer">
           <img src={TheRacer} alt="The Racer" />
         </Link>
       </Movie>
-      <Movie>
+      <Movie
+        ref={element2}
+        animate={controls2}
+        variants={fadeAnim}
+        initial="hidden"
+      >
         <h2>Good Times</h2>
         <div className="line"></div>
         <Link to="/work/good-times">
           <img src={GoodTimes} alt="Good Times" />
         </Link>
       </Movie>
+      <ScrollTop />
     </Work>
   );
 };
